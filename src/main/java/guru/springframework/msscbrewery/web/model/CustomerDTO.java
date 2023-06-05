@@ -5,19 +5,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.UUID;
 
-/**
- * Created by jt on 2019-04-20.
- */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class BeerDto {
+
+public class CustomerDTO {
 
     private UUID id;
-    private String beerName;
-    private String beerStyle;
-    private Long upc;
+
+    @NotBlank
+    @Size(min = 3, max = 100)
+    private String CustomerName;
+
 }
